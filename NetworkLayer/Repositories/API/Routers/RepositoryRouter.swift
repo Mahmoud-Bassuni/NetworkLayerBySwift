@@ -9,26 +9,26 @@
 import Foundation
 
 enum RepositoryRouter {
-     case getAllRepositories(page: Int)
+     case getAllRepositories(page: String)
 }
 
 extension RepositoryRouter: ServiceLayer {
     var baseURL: String {
-        return "https://api.github.com"
+        return EndPoint.baseUrl.rawValue
     }
 
     var path: String {
         switch self {
         case .getAllRepositories:
-            return "/users/johnsundell/repos"
+            return EndPoint.getRepositoriesURL.rawValue
         }
-          
     }
 
     var parameters: [String: Any]? {
-        // default params
-        let params: [String: Any] = ["page": "1"]
-        return params
+        switch self {
+         case let .getAllRepositories(page):
+            return ["page": page , "per_page" :"20"]
+        }
     }
 
     var method: ServiceMethod {

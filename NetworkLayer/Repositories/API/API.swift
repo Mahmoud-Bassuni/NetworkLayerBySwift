@@ -13,7 +13,7 @@ class API {
     
     private init() {}
     
-    func getRepositories(pageNo : Int , completion:@escaping (Result<RepositoriesCodableModel>) -> Void) {
+    func getRepositories(pageNo : String , completion:@escaping (Result<RepositoriesCodableModel>) -> Void) {
         
         ServiceProvider<RepositoryRouter>().load(service: .getAllRepositories(page: pageNo), decodeType: RepositoriesCodableModel.self, completion: completion)
         
