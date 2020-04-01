@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mahmoud Basyouny. All rights reserved.
 //
 
-struct ApiError: Codable, Error {
+struct ApiError {
     var status: Int
     var message: String
 }
