@@ -66,7 +66,7 @@ extension ServiceProvider {
                         break
                     case 401 :
                         //  LogoutService.shared.logout()
-                        completion(.failure(ApiError(status: 401, message: "e403")))
+                        completion(.failure(ApiError(status: 401, message: "e401")))
                         break
                     case 403 :
                         completion(.failure(ApiError(status: 403, message: "e403")))
